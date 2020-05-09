@@ -1,0 +1,8 @@
+#formDiv{
+    border:2px solid rebeccapurple ;
+    padding: 25px;
+    border-radius: 15px;
+}
+#formDiv .btn{
+    width: 100px;
+}

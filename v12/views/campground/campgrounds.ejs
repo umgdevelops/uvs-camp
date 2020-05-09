@@ -1,0 +1,26 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/campCss.css">
+
+<div class="container">
+    <div class="jumbotron">
+        <h2>VIEW CAMPGROUNDS!</h2>
+        <p>Have a look at our best campgrounds from all over the world</p>
+        <a href="/campgrounds/new" class="btn btn-primary">Add new campground</a>
+    </div>
+    <div class="row">
+        <% campgroundsPassed.forEach(function(camp){ %>
+        <div class="col-3">
+            <div class="card">
+                <img class="card-img-top img-fluid" src="<%= camp.image %>" alt="image here">
+                <h6 class="card-title"><%= camp.name %></h6>
+                <p class="card-text">
+                    <%= camp.description.substring(0,100) %>...
+                </p>
+                <a href="/campgrounds/<%= camp._id %>" id="moreInfo" class="btn btn-primary btn-sm">More Info</a>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>

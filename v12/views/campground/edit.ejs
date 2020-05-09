@@ -1,0 +1,21 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/newCss.css">
+
+<div class="container">
+    <form action="/campgrounds/<%= campgroundsPassed._id %>?_method=PUT" method="POST">
+        <p><h4>Edit </h4><i><%= campgroundsPassed.name %></i></p>
+        <div id="formDiv">
+            <label for="camp[name]">Name</label><br>
+            <input id="camp[name]" name="camp[name]" type="text" class="form-control form-control-sm" value="<%= campgroundsPassed.name %>"><br>
+            <label for="camp[image]">Image Url</label><br>
+            <input id="camp[image]" name="camp[image]" type="text" class="form-control form-control-sm" value="<%= campgroundsPassed.image %>"><br>
+            <label for="camp[description]">Description</label><br>
+            <textarea id="camp[description]" name="camp[description]" type="text" class="form-control form-control-sm" cols="30" rows="10"><%= campgroundsPassed.desc %></textarea>
+            <br>
+            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+            <a href="/campgrounds" class="btn btn-danger btn-sm">Go Back</a>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

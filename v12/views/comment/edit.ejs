@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/newCss.css">
+
+<div class="container">
+    <form action="/campgrounds/<%= campPassed._id %>/comment/<%= commentPassed._id %>?_method=PUT" method="POST">
+        <p><h4>Edit Comment for <i><%= campPassed.name %></i></h4></p>
+        <div id="formDiv">
+            <label for="comment[text]">Comment Text</label><br>
+            <input id="comment[text]" name="comment[text]" type="text" class="form-control form-control-sm" value="<%= commentPassed.text %>"><br>
+            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+            <a href="/campgrounds" type="submit" class="btn btn-danger btn-sm">Go Back</a>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

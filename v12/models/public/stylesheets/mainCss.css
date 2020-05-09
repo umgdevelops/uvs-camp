@@ -1,0 +1,10 @@
+body{
+    padding-top: 86px; /* 56 navbar + 30 */
+    font-family: Arial;
+}
+.navbar{
+    background: white;
+}
+a.nav-link, a.navbar-brand{
+    color: black;
+}

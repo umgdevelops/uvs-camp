@@ -1,0 +1,58 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/showCss.css">
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <p class="lead"><%= campFound.name %></p>
+            <div class="list-group">
+                <li class="list-group-item">Info 1</li>
+                <li class="list-group-item">Info 2</li>
+                <li class="list-group-item">Info 3</li>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="img-thumbnail">
+                <img class="img-fluid" src="<%= campFound.image %>" alt="image here">
+                <div class="caption-full">
+                    <h5 class="float-right">$9.00/night</h5>
+                    <h5><a href="#" class="text-left"><%= campFound.name %></a></h5>
+                    <i>Info by </i><strong><%= campFound.author.username %></strong>
+                    <p>Description: <%= campFound.description %></p>
+                    <% if(loggedinUser && campFound.author.id.equals(loggedinUser._id) ){ %>
+                        <div class="hideShowButtons">
+                            <a class="btn-comment btn btn-warning btn-sm" href="/campgrounds/<%= campFound._id %>/edit">Edit Camp</a class=" text-right btn btn-warning">
+                            <form class="delete-form" action="/campgrounds/<%= campFound._id %>/?_method=DELETE" method="POST">
+                                <button class="btn-comment btn btn-danger btn-sm" type="submit">Delete Camp</a>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+            <div id="well">
+                <div class="text-left">
+                    <a class="btn-comment btn btn-success btn-sm" href="/campgrounds/<%= campFound._id %>/comment/new">Add comment</a class=" text-right btn btn-warning">
+                </div>  <!-- end text-left -->
+                <% campFound.comments.forEach(function(comm){ %>
+                    <div id="comments" class="list-group-item list-group-item-secondary">
+                        <div>
+                            <b><%= comm.author.username %></b>
+                            <span id="timePill" class="float-right">10 days ago</span>
+                            <p><%= comm.text %></p>
+                            <% if(loggedinUser && comm.author.id.equals(loggedinUser._id) ){ %>
+                                <div class="hideShowButtons">
+                                    <a href="/campgrounds/<%= campFound._id %>/comment/<%= comm._id %>/edit" class="btn-primary btn btn-sm">Edit</a>
+                                    <form class="delete-form" action="/campgrounds/<%= campFound._id %>/comment/<%= comm._id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
+                                </div>
+                            <% } %>
+                        </div>
+                    </div>
+                <% }) %>
+            </div> <!-- end well -->
+        </div> <!-- col-md-9 -->
+    </div> <!-- end row -->
+</div> <!-- end container -->
+
+<%- include('../partials/footer') %>

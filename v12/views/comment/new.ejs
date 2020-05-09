@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<link rel="stylesheet" href="/stylesheets/newCss.css">
+
+<div class="container">
+    <form action="/campgrounds/<%= campPassed._id %>/comment" method="POST">
+        <p><h4>Add New Comment for <i><%= campPassed.name %></i></h4></p>
+        <div id="formDiv">
+            <!-- why to comment below 2 lines? : author cannot create a comment using anyone else's name -->
+            <!-- <label for="comment[author]">Your Name</label><br> -->
+            <!-- <input id="comment[author]" name="comment[author]" type="text" class="form-control form-control-sm" placeholder="Name of the author><br> -->
+            <label for="comment[text]">Comment Text</label><br>
+            <input id="comment[text]" name="comment[text]" type="text" class="form-control form-control-sm" placeholder="Paste the image url"><br>
+            <button type="submit" class="btn btn-success btn-sm">Submit</button>
+            <a href="/campgrounds" type="submit" class="btn btn-danger btn-sm">Go Back</a>
+        </div>
+    </form>
+</div>
+
+<%- include('../partials/footer') %>

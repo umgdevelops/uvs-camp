@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- FONTAWESOME -->
+    <!-- <script src="https://kit.fontawesome.com/86d6a674b4.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="/stylesheets/mainCss.css">
+  </head>
+  <body>
+    <!-- ---------------   NAV-BAR  ---------------- -->
+    <div class="navMain">
+        <nav class="navbar fixed-top navbar-expand-md shadow">
+            <a href="#" class="navbar-brand">
+                <p class="mb-0"><b>Yelp Camp</b></p>
+            </a>
+            <button class="navbar-toggler padding-bottom-0" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- Items to be collapsed -->
+            <div class="nav collapse navbar-collapse justify-content-end" id="navLinks">
+                <ul class="navbar-nav">
+                    <% if(!loggedinUser){ %>
+                        <li><a href="/campgrounds" class="nav-link">HOME</a></li>
+                        <li><a href="/register" class="nav-link">SIGNUP <i class="fas fa-user-plus"></i></a></li>
+                        <li><a href="/login" class="nav-link">LOGIN <i class="fas fa-sign-in-alt"></i></a></li>
+                        <li><a href="#" class="nav-link">CONTACT US</a></li>
+                    <% }else{ %>
+                        <li><a href="#" class="nav-link">Welcome, <i><%= loggedinUser.username %></i></a></li>
+                        <li><a href="/campgrounds" class="nav-link">HOME</a></li>
+                        <li><a href="/campgrounds/new" class="nav-link">ADD CAMP</a></li>
+                        <li><a href="#" class="nav-link">CONTACT US</a></li>
+                        <li><a href="/logout" class="nav-link">LOGOUT <i class="fas fa-sign-in-alt"></i></a></li>
+                    <% } %>
+                </ul>
+            </div>
+        </nav>
+    </div> <!--navMain-->
+    <div class="container">
+        <% if(error && error.length>0){ %>
+            <p class="alert alert-danger" role="alert"><%= error %></p>
+        <% } %>
+        <% if(success && success.length>0){ %>
+            <p class="alert alert-success" role="alert"><%= success %></p>
+        <% } %>
+        <% if(info && info.length>0){ %>
+            <p class="alert alert-dark" role="alert"><%= info %></p>
+        <% } %>
+    </div>

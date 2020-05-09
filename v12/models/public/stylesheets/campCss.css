@@ -1,0 +1,18 @@
+.card-title{
+    padding: 7px;
+    color: rebeccapurple;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.card-image-top{
+    height: 50px;
+}
+.card-text{
+    font-size: 90%;
+    padding: 7px;
+    margin: 0;
+}
+#moreInfo{
+    width: 75%;
+    margin: 10px auto;
+}

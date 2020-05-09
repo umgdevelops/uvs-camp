@@ -1,0 +1,19 @@
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/stylesheets/newCss.css">
+
+<div class="container">
+    <form action="/login" method="POST">
+        <p><h4>Login to your account</h4></p>
+        <div id="formDiv">
+            <label for="username">Username</label><br>
+            <input id="username" name="username" type="text" class="form-control form-control-sm" placeholder="Username"><br>
+            <label for="password">Password</label><br>
+            <input id="password" name="password" type="text" class="form-control form-control-sm" placeholder="Password"><br>
+            <button type="submit" class="btn btn-success btn-sm">Login</button>
+            <a href="/campgrounds" class="btn btn-danger btn-sm">Go Back</a>
+            <a href="/register" class="btn btn-primary btn-sm">Register</a>
+        </div>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
